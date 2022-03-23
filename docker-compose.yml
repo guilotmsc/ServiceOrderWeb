@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  web:
+    container_name: ordering-service-ui
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    command: yarn start
+    tty: true
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
